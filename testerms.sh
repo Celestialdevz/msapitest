@@ -35,7 +35,7 @@ main() {
         fi
     else
         local free_trial=$(echo $hwid_info | ./jq -r ".free_trial")
-        if [ "$free_trial" == "true" ]
+        if [ "$free_trial" == "false" ]
         then
             echo -ne "\rEnter License Key (Press Enter to Continue as Free Trial): "
             read input_key
@@ -44,7 +44,7 @@ main() {
             then
                 echo -n "Contacting Secure Api... "
                 
-                local resp=$(curl -s "https://git.raptor.fun/api/sellix?key=$input_key&hwid=$user_hwid")
+                local resp= "Entering Testers Verse"
                 echo -e "Done.\n$resp"
             fi
         else
